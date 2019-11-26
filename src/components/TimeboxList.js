@@ -2,12 +2,14 @@ import React from 'react';
 
 import TimeboxCreator from './TimeboxCreator';
 import Timebox from './Timebox';
+import Error from './Error';
 
 class TimeboxList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            timeboxes: []
+            timeboxes: [],
+            hasError: false
         }
     }
 
@@ -40,16 +42,19 @@ class TimeboxList extends React.Component {
         return (
             <>
                 <TimeboxCreator onCreate={this.handleCreate} />
-                {this.state.timeboxes.map((timebox, i) => (
-                    <Timebox
-                        key={timebox.id}
-                        title={timebox.title}
-                        totalTimeInMinutes={timebox.totalTimeInMinutes}
-                        onDelete={() => this.removeTimebox(i)}
-                        onEdit={() => this.updateTimebox(i, {...timebox, title: 'updated timebox'})}
-                    />
-                ))}
-                
+                <Error message="Nie udało się wyrenderować listy">
+                {
+                    this.state.timeboxes.map((timebox, i) => (
+                        <Timebox
+                            key={timebox.id}
+                            title={timebox.title}
+                            totalTimeInMinutes={timebox.totalTimeInMinutes}
+                            onDelete={() => this.removeTimebox(i)}
+                            onEdit={() => this.updateTimebox(i, {...timebox, title: 'updated timebox'})}
+                        />
+                    ))
+                }
+                </Error>
             </>
         );
     }

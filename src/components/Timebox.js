@@ -1,6 +1,9 @@
 import React from 'react';
 
 function Timebox({ title, totalTimeInMinutes, onDelete, onEdit }) {
+    if (totalTimeInMinutes <= 0) {
+        throw new Error("Całkowity czas musi być większy od 0");
+    }
     return (
         <section className="timebox timebox--inactive">
             <p className="timebox__title timebox__title--inactive">{title} - {totalTimeInMinutes} min.</p>
