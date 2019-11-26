@@ -7,11 +7,7 @@ class TimeboxList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            timeboxes: [
-                { title: 'Uczę się wyciągania stanu', totalTimeInMinutes: 15 },
-                { title: 'Uczę się komponentów', totalTimeInMinutes: 25 },
-                { title: 'Uczę się formularzy', totalTimeInMinutes: 10 }
-            ]
+            timeboxes: []
         }
     }
 
