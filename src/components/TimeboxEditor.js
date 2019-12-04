@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function TimeboxEditor(props) {
     const { title, totalTimeInMinutes, isEditable, onTitleChange, onTotalTimeInMinutesChange, onConfirm } = props;
@@ -37,6 +38,15 @@ function TimeboxEditor(props) {
             >Zatwierdź</button>
         </div>
     );
+}
+
+TimeboxEditor.propTypes = {
+    title: PropTypes.string.isRequired,
+    totalTimeInMinutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    isEditable: PropTypes.bool.isRequired,
+    onTitleChange: PropTypes.func.isRequired,
+    onTotalTimeInMinutesChange: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func.isRequired
 }
 
 export default TimeboxEditor;

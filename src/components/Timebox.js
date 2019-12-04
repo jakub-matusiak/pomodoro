@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Timebox({ title, totalTimeInMinutes, onDelete, onEdit }) {
     if (totalTimeInMinutes <= 0) {
@@ -17,6 +18,13 @@ function Timebox({ title, totalTimeInMinutes, onDelete, onEdit }) {
             >Zmień</button>
         </section>
     );
+}
+
+Timebox.propTypes = {
+    title: PropTypes.string.isRequired,
+    totalTimeInMinutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    onDelete: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired
 }
 
 export default Timebox;

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Clock({ className = '', minutes, seconds }) {
+function Clock({ className, minutes, seconds}) {
 
     // CHECK CORRECT VALUES
 
@@ -26,6 +27,16 @@ function Clock({ className = '', minutes, seconds }) {
 
     return <p className={`timebox__clock ${className}`}>Pozostało {minutes}:{seconds}</p>;
 
+}
+
+Clock.defaultProps = {
+    className: ''
+}
+
+Clock.propTypes = {
+    className: PropTypes.string.isRequired,
+    minutes: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    seconds: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
 }
 
 export default Clock;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Clock from './Clock';
 import ProgressBar from './ProgressBar';
@@ -124,6 +125,13 @@ class CurrentTimebox extends React.Component {
             </section>
         );
     }
+}
+
+CurrentTimebox.propTypes = {
+    isRunning: PropTypes.bool,
+    isEditable: PropTypes.bool,
+    onEdit: PropTypes.func,
+    pausesCount: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default CurrentTimebox;
