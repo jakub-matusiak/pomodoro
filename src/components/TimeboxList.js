@@ -2,7 +2,7 @@ import React from 'react';
 
 import TimeboxCreator from './TimeboxCreator';
 import Timebox from './Timebox';
-import Error from './Error';
+import ErrorBoundary from './ErrorBoundary';
 
 class TimeboxList extends React.Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class TimeboxList extends React.Component {
         return (
             <>
                 <TimeboxCreator onCreate={this.handleCreate} />
-                <Error message="Nie udało się wyrenderować listy">
+                <ErrorBoundary message="Nie udało się wyrenderować listy">
                 {
                     this.state.timeboxes.map((timebox, i) => (
                         <Timebox
@@ -54,7 +54,7 @@ class TimeboxList extends React.Component {
                         />
                     ))
                 }
-                </Error>
+                </ErrorBoundary>
             </>
         );
     }
