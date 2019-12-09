@@ -1,5 +1,4 @@
 import React from 'react';
-import uuidv4 from 'uuid';
 
 class TimeboxCreator extends React.Component {
     constructor(props) {
@@ -21,7 +20,6 @@ class TimeboxCreator extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onCreate({
-            id: uuidv4(),
             title: this.state.title,
             totalTimeInMinutes: this.state.totalTimeInMinutes
         });
