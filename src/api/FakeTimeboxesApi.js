@@ -22,7 +22,7 @@ function findIndexById(id) {
     return result;
 }
 
-const TimeboxesAPI = {
+const FakeTimeboxesAPI = {
     getAllTimeboxes: async function() {
         await wait(1000);
         return [...timeboxes];
@@ -53,4 +53,4 @@ const TimeboxesAPI = {
     }
 }
 
-export default TimeboxesAPI;
+export default FakeTimeboxesAPI;
