@@ -23,6 +23,68 @@ body {
     margin: 32px auto;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 480px;
+    &__welcome {
+        color: #838383;
+    }
+    &__logout {
+        color: #C6C6C6;
+        font-size: 10px;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* LOGIN FORM */
+
+.login-form {
+    background: #FFFFFF;
+    border: 1px solid #C6C6C6;
+    border-radius: 4px;
+    width: 480px;
+    margin: 16px;
+    padding: 32px;
+    &__label {
+        display: block;
+        color: #272727;
+        font-size: 24px;
+        margin-bottom: 2px;
+    }
+    &__input {
+        display: block;
+        color: #272727;
+        font-size: 16px;
+        line-height: 16px;
+        border: 1px solid #838383;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        padding: 8px;
+        width: 100%;
+    }
+    &__button {
+        cursor: pointer;
+        background: #FA8500;
+        border: 0;
+        border-radius: 4px;
+        color: #FFFFFF;
+        font-size: 16px;
+        line-height: 16px;
+        width: 128px;
+        height: 32px;
+        margin: 8px 0;
+    }
+    &__error {
+        color: #FF0000;
+        text-align: center;
+    }
+}
+
 /* TIMEBOX EDITOR */
 
 .timebox-editor {
