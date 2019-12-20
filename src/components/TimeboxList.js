@@ -17,7 +17,7 @@ class TimeboxList extends React.Component {
     }
 
     componentDidMount() {
-        TimeboxesAPI.getAllTimeboxes().then(
+        TimeboxesAPI.getAllTimeboxes(this.props.accessToken).then(
             (timeboxes) => this.setState({ timeboxes })
         ).catch(
             (error) => this.setState({ error })
@@ -27,7 +27,7 @@ class TimeboxList extends React.Component {
     }
 
     addTimebox = (timebox) => {
-        TimeboxesAPI.addTimebox(timebox).then(
+        TimeboxesAPI.addTimebox(timebox, this.props.accessToken).then(
             (addTimebox) => this.setState(prevState => {
                 const timeboxes = [...prevState.timeboxes, addTimebox];
                 return { timeboxes };
@@ -36,7 +36,7 @@ class TimeboxList extends React.Component {
     }
 
     removeTimebox = (indexToRemove) => {
-        TimeboxesAPI.removeTimebox(this.state.timeboxes[indexToRemove]).then(
+        TimeboxesAPI.removeTimebox(this.state.timeboxes[indexToRemove], this.props.accessToken).then(
             () => this.setState(prevState => {
                 const timeboxes = prevState.timeboxes.filter((timebox, i) => i !== indexToRemove);
                 return { timeboxes };
@@ -46,7 +46,7 @@ class TimeboxList extends React.Component {
     }
 
     updateTimebox = (indexToUpdate, timeboxToUpdate) => {
-        TimeboxesAPI.replaceTimebox(timeboxToUpdate).then(
+        TimeboxesAPI.replaceTimebox(timeboxToUpdate, this.props.accessToken).then(
             (updatedTimebox) => this.setState(prevState => {
                 const timeboxes = prevState.timeboxes.map((timebox, i) => i === indexToUpdate ? updatedTimebox : timebox);
                 return { timeboxes };
