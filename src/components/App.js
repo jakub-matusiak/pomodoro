@@ -13,6 +13,14 @@ class App extends React.Component {
         previousLoginAttemptFailed: false
     }
 
+    componentDidMount() {
+        if (localStorage.getItem('token')) {
+            this.setState({
+                accessToken: localStorage.getItem('token')
+            });
+        }
+    }
+
     isUserLoggedIn() {
         return !!this.state.accessToken;
     }
@@ -29,6 +37,7 @@ class App extends React.Component {
                     accessToken,
                     previousLoginAttemptFailed: false
                 });
+                localStorage.setItem('token', accessToken);
             }).catch( () => {
                 this.setState({
                     previousLoginAttemptFailed: true
@@ -41,6 +50,7 @@ class App extends React.Component {
             accessToken: null,
             previousLoginAttemptFailed: false
         });
+        localStorage.removeItem('token');
     }
 
     render() {
