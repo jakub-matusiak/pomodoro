@@ -67,10 +67,16 @@ class App extends React.Component {
                             <TimeboxList accessToken={this.state.accessToken} />
                             <EditableTimebox />
                         </> :
-                        <LoginForm
-                            errorMessage={ this.state.previousLoginAttemptFailed ? "Nie udało się zalogować!" : null }
-                            onLoginAttempt={this.handleLoginAttempt}
-                        />
+                        <>
+                            <header className="header">
+                                <span className="header__welcome">Cześć, nieznajomy!</span>
+                                <p className="header__paragraph">Zaloguj się aby przejść dalej.</p>
+                            </header>
+                            <LoginForm
+                                errorMessage={ this.state.previousLoginAttemptFailed ? "Nie udało się zalogować!" : null }
+                                onLoginAttempt={this.handleLoginAttempt}
+                            />
+                        </>
                     }
                 </ErrorBoundary>
             </div>

@@ -38,9 +38,15 @@ body {
         color: #C6C6C6;
         font-size: 10px;
         text-decoration: none;
+        padding: 0;
         &:hover {
             text-decoration: underline;
         }
+    }
+    &__paragraph {
+        color: #C6C6C6;
+        font-size: 10px;
+        margin: 0;
     }
 }
 
