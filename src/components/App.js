@@ -52,7 +52,7 @@ class App extends React.Component {
                         <>
                             <header className="header">
                                 <span className="header__welcome">Cześć, {this.getUserEmail()}!</span>
-                                <a href="#" className="header__logout" onClick={this.handleLogout}>Wyloguj się</a>
+                                <button className="header__logout" onClick={this.handleLogout}>Wyloguj się</button>
                             </header>
                             <TimeboxList accessToken={this.state.accessToken} />
                             <EditableTimebox />
