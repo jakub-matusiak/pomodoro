@@ -4,7 +4,7 @@ import TimeboxList from './TimeboxList';
 import EditableTimebox from './EditableTimebox';
 import ErrorBoundary from './ErrorBoundary';
 import LoginForm from './LoginForm';
-import AuthenticationAPI from '../api/FetchAuthenticationApi';
+import AuthenticationAPI from '../api/AxiosAuthenticationApi';
 import jwt from 'jsonwebtoken';
 
 class App extends React.Component {
